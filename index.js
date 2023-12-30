@@ -3,7 +3,10 @@ import fs from "fs";
 import bodyParser from "body-parser";
 
 const app = express();
-app.use(bodyParser.json());
+app.use(bodyParser.json(),cors({
+  origin: "https://api-vote-ibqn.onrender.com/"
+}
+));
 
 const readData = () => {
   try {
@@ -77,8 +80,4 @@ app.listen(3000, () => {
 });
 
 
-app.use(cors({
-  origin: "https://api-vote-ibqn.onrender.com/"
-}
-))
 app.options('*', cors())
