@@ -75,3 +75,10 @@ app.delete("/users/:id", (req, res) => {
 app.listen(3000, () => {
   console.log("Server listening on port 3000");
 });
+
+
+app.use(cors({
+  origin: "https://api-vote-ibqn.onrender.com/"
+}
+))
+app.options('*', cors())
